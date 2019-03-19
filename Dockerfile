@@ -30,6 +30,8 @@ WORKDIR ${YOCTO_INSTALL_PATH}
 ENV YOCTO_RELEASE "thud"                                                         
                                                                                  
 # install Poky                                                                   
-RUN git clone https://github.com/slurpdieperzik/poky.git
+RUN git clone --recurse-submodules https://github.com/slurpdieperzik/poky.git
 
-RUN source /opt/yocto/poky/oe-init-build-env
+# make build when container is run
+CMD source /opt/yocto/poky/oe-init-build-env \
+    build && bitbake core-image-base
