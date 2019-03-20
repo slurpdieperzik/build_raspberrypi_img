@@ -1,4 +1,4 @@
-# Dockerfile for using Yocto as a build environment for the Raspberry Pi
+# Dockerfile for using Yocto as a build environment to build an image for the Raspberry Pi 3
 FROM ubuntu:18.04
 MAINTAINER Bruno Horemans <bruno.horemans@qteal.com>
 
@@ -29,7 +29,7 @@ WORKDIR ${YOCTO_INSTALL_PATH}
 # set the Yocto release                                                          
 ENV YOCTO_RELEASE "thud"                                                         
                                                                                  
-# install Poky                                                                   
+# install poky mirror                                                                  
 RUN git clone --recurse-submodules https://github.com/slurpdieperzik/poky.git
 
 # make build when container is run
